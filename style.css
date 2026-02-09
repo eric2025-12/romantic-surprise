@@ -1,58 +1,264 @@
-*{
-display:none;
-gap:20px;
-flex-wrap:wrap;
-justify-content:center;
-margin-top:30px;
+/* GOOGLE FONT BASE */
+body{
+  font-family:'Poppins',sans-serif;
+  margin:0;
+  overflow-x:hidden;
+  text-align:center;
+  color:#333;
+
+  /* Animated romantic gradient */
+  background:linear-gradient(-45deg,#ff9a9e,#fad0c4,#fad0c4,#ffdde1);
+  background-size:400% 400%;
+  animation:gradientFlow 12s ease infinite;
 }
 
+@keyframes gradientFlow{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+
+/* FULL SCREEN SECTIONS */
+section{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:40px 20px;
+}
+
+.hidden{display:none;}
+.hiddenText{display:none;}
+.hiddenBtn{display:none;}
+
+
+/* TITLES */
+.romanticTitle{
+  font-family:'Great Vibes',cursive;
+  font-size:4rem;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  opacity:.7;
+  margin-bottom:35px;
+}
+
+
+/* LOADER */
+#loader{
+  position:fixed;
+  inset:0;
+  background:#fff0f5;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  font-size:1.5rem;
+  z-index:9999;
+}
+
+.heart{
+  font-size:3rem;
+  animation:beat 1s infinite alternate;
+}
+
+@keyframes beat{
+  from{transform:scale(1);}
+  to{transform:scale(1.35);}
+}
+
+
+
+/* FLOWER */
+.flower{
+  width:190px;
+  height:190px;
+  background:#ffe4e1;
+  border-radius:50%;
+  position:relative;
+  cursor:pointer;
+
+  box-shadow:
+  0 10px 40px rgba(255,105,135,.4),
+  inset 0 0 25px rgba(255,255,255,.8);
+
+  animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.1);}
+  100%{transform:scale(1);}
+}
+
+.flower.open{
+  animation:none;
+}
+
+
+/* PETALS */
+.petal{
+  position:absolute;
+  width:90px;
+  height:90px;
+  background:#ff4b5c;
+  border-radius:50%;
+  top:50px;
+  left:50px;
+  transform:scale(0);
+  transition:1s cubic-bezier(.17,.67,.48,1.32);
+}
+
+.flower.open .petal:nth-child(1){
+  transform:scale(1) translate(70px,0);
+}
+
+.flower.open .petal:nth-child(2){
+  transform:scale(1) translate(-70px,0);
+}
+
+.flower.open .petal:nth-child(3){
+  transform:scale(1) translate(0,70px);
+}
+
+.flower.open .petal:nth-child(4){
+  transform:scale(1) translate(0,-70px);
+}
+
+
+/* CENTER */
+.center{
+  position:absolute;
+  width:80px;
+  height:80px;
+  background:gold;
+  border-radius:50%;
+  top:55px;
+  left:55px;
+  transform:scale(0);
+  transition:1s;
+}
+
+.flower.open .center{
+  transform:scale(1);
+}
+
+
+
+/* BUTTON — PREMIUM */
+#enterBtn{
+  margin-top:30px;
+  padding:16px 34px;
+  font-size:1.15rem;
+  border:none;
+  border-radius:40px;
+  cursor:pointer;
+
+  background:linear-gradient(45deg,#ff4b5c,#ff758c);
+  color:white;
+
+  box-shadow:0 10px 30px rgba(255,75,92,.4);
+
+  transition:.3s;
+}
+
+#enterBtn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 18px 40px rgba(255,75,92,.6);
+}
+
+
+
+/* LETTERS — GLASS STYLE */
+.letters{
+  width:100%;
+  max-width:900px;
+}
 
 .letter{
-width:260px;
-background:white;
-padding:20px;
-border-radius:15px;
-box-shadow:0 8px 20px rgba(0,0,0,.1);
-cursor:pointer;
-transition:.3s;
-}
+  backdrop-filter:blur(14px);
+  background:rgba(255,255,255,.35);
 
+  border-radius:24px;
+  padding:26px;
+  margin:20px auto;
+
+  cursor:pointer;
+
+  transition:.35s;
+
+  box-shadow:0 10px 40px rgba(0,0,0,.08);
+}
 
 .letter:hover{
-transform:translateY(-10px);
+  transform:translateY(-6px) scale(1.02);
 }
 
 
+/* MESSAGE */
 .message{
-display:none;
-margin-top:10px;
-color:#555;
+  display:none;
+  margin-top:14px;
+  color:#444;
+  line-height:1.7;
 }
 
 
-h1{
-font-size:2.3rem;
-margin-bottom:10px;
-}
 
-
+/* FINAL MESSAGE */
 .final{
-font-size:1.8rem;
-margin-top:40px;
-font-weight:bold;
+  margin-top:60px;
+  font-size:2rem;
+  color:#ff4b5c;
+  max-width:700px;
+  line-height:1.6;
 }
 
+
+
+/* FLOATING HEARTS */
+.floating-heart{
+  position:fixed;
+  pointer-events:none;
+  animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0) scale(1);
+    opacity:.9;
+  }
+  to{
+    transform:translateY(-120vh) scale(1.8);
+    opacity:0;
+  }
+}
 
 
 
 /* MOBILE OPTIMIZATION */
-@media(max-width:600px){
-h1{
-font-size:1.8rem;
+@media(max-width:768px){
+
+.romanticTitle{
+  font-size:2.7rem;
 }
 
-
-.letter{
-width:90%;
+.flower{
+  width:150px;
+  height:150px;
 }
+
+.petal{
+  width:70px;
+  height:70px;
+}
+
+.center{
+  width:60px;
+  height:60px;
+}
+
 }

@@ -1,63 +1,130 @@
 <!DOCTYPE html>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="petal"></div>
-<div class="center"></div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- MOBILE OPTIMIZATION -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>A Tiny Surprise 🌸 ❤️</title>
+
+  <!-- Google Font (VERY important for premium feel) -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<!-- FLOATING HEARTS CONTAINER -->
+<div id="hearts-container"></div>
+
+<!-- CONFETTI -->
+<canvas id="confetti"></canvas>
+
+<!-- MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b05c2f6c.mp3?filename=sweet-love-111199.mp3">
+</audio>
+
+
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="heart">❤️</div>
+  <p>Preparing something special for you...</p>
 </div>
 
 
-<p id="flowerText" class="hiddenText">
-Like this flower… my love keeps opening.
-</p>
 
+<!-- FLOWER SECTION -->
+<section id="flowerSection" class="hidden">
 
-<button id="enterBtn" class="hiddenBtn">Enter ❤️</button>
+  <h1 class="romanticTitle">
+    I have something for you...
+  </h1>
+
+  <p class="subtitle">
+    Tap the flower ✨
+  </p>
+
+  <div class="flower" id="flower">
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <p id="flowerText" class="hiddenText">
+    Like this flower… my love keeps opening.
+  </p>
+
+  <button id="enterBtn" class="hiddenBtn">
+    Open Your Surprise ❤️
+  </button>
+
 </section>
 
 
+
 <!-- LETTER SECTION -->
-<section id="lettersSection" class="lettersSection">
-<h1>Open When You Miss Me 💌</h1>
+<section id="lettersSection" class="hidden lettersSection">
+
+  <h1 class="romanticTitle">
+    Open When You Miss Me 💌
+  </h1>
+
+  <div class="letters">
+
+    <div class="letter">
+      When you're sad
+      <div class="message">
+        Remember this — no matter what happens,<br>
+        you will never face it alone.<br>
+        I am always right beside you.
+      </div>
+    </div>
+
+    <div class="letter">
+      When you can't sleep
+      <div class="message">
+        Close your eyes and imagine me holding you.<br>
+        Let my thoughts be the peace that carries you into dreams.
+      </div>
+    </div>
+
+    <div class="letter">
+      When you feel ugly
+      <div class="message">
+        Go look in the mirror…<br>
+        That’s the girl I’m crazy about.
+      </div>
+    </div>
+
+    <div class="letter">
+      When you're overthinking
+      <div class="message">
+        If your mind is being mean to you,<br>
+        come borrow mine…<br>
+        because mine only sees someone incredible.
+      </div>
+    </div>
+
+  </div>
 
 
-<div class="letters">
 
+  <!-- FINAL TYPING MESSAGE -->
+  <div class="final hiddenText">
+    <span id="typing"></span>
+  </div>
 
-<div class="letter" onclick="toggleMessage(this)">
-When you're sad
-<div class="message">Remember this — no matter what happens, you will never face it alone. I am always right beside you.</div>
-</div>
-
-
-<div class="letter" onclick="toggleMessage(this)">
-When you can't sleep
-<div class="message">Close your eyes and imagine me holding you. Let my thoughts be the peace that carries you into dreams.</div>
-</div>
-
-
-<div class="letter" onclick="toggleMessage(this)">
-When you need to smile
-<div class="message">Somewhere right now, I'm probably smiling because you exist in my life.</div>
-</div>
-
-
-<div class="letter" onclick="toggleMessage(this)">
-When you miss me
-<div class="message">Distance means nothing when someone means everything. I'm always closer than you think.</div>
-</div>
-
-
-</div>
-
-
-<div class="final">
-I didn’t just buy you something…<br>
-I built this for you. ❤️
-</div>
 </section>
 
 
 <script src="script.js"></script>
+
 </body>
 </html>
